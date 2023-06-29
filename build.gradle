@@ -1,0 +1,51 @@
+buildscript {
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-single-page-report:3.3.0"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:3.4.2"
+    }
+}
+
+plugins {
+    id "net.serenity-bdd.serenity-gradle-plugin" version "3.3.0"
+    id 'java'
+}
+
+defaultTasks 'clear', 'test', 'aggregate'
+group 'com.exito'
+version '1.0-SNAPSHOT'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.serenity-bdd:serenity-junit5:3.3.0'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.6.0'
+    implementation 'net.serenity-bdd:serenity-core:3.6.0'
+    implementation group: 'org.apache.poi', name: 'poi', version: '3.17'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+    implementation 'org.slf4j:slf4j-simple:1.7.7'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+serenity{
+    testRoot="com.amazon.runners"
+    requirementsBaseDir=["src/test/resources/features/"]
+    reports=["single-page-html"]
+}
+
+gradle.startParameter.continueOnFailure = true
+test.finalizedBy(aggregate)

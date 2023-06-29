@@ -1,0 +1,9 @@
+
+x
+java:S1104"VMake TXT_SEARCH a static final constant or non-public and provide accessors if needed.(у╩╜Г     8╚╓о╗Р1
+R
+java:S1444"0Make this "public static TXT_SEARCH" field final(у╩╜Г     8╚╓о╗Р1
+w
+java:S3008"URename this field "TXT_SEARCH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(у╩╜Г     8╔╓о╗Р1
+\
+java:S1118":Add a private constructor to hide the implicit public one.(Вы┌З■    8╩╓о╗Р1
